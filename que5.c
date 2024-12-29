@@ -1,25 +1,23 @@
-//ques5. wap to print following series......
-//7,10,8,11,9,12......
-//-----------------------------------------------------------
+//
+// calculate y power x where x and y pass as an argument to a function
 
-#include<stdio.h>
+#include <stdio.h>
+
+int calculate(int y, int x)
+{int power = 0, i;
+   for ( i = 1; i <= x; i++)
+   {
+     power = y*i;
+   }
+   return power;   
+}
+
 int main()
 {
- int n, a,k;
- a=7, k=2; 
- printf("Enter length of series: ");
- scanf("%d",&n);
-
-   
-  printf("%d",a);
-    
- for ( int i = 1; i <= n; i++)
- {    
-     a = (a + 3);
-     printf(", %d",a);
-     a -= k;
-     printf(", %d",a);
-    
- }
+    int y, x, power;
+    printf("enter values of x and y: ");
+    scanf("%d%d", &x, &y);
+    power = calculate(y, x);
+    printf("%d power %d : %d",y,x,power);
     return 0;
 }

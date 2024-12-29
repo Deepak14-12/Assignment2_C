@@ -1,25 +1,28 @@
-//ques8. wap to print following series......
-//APK,BQL,CRM,DSN......
-//-----------------------------------------------------------
+// take 10 elemengts in array, count positive and negative number in array
 
-#include<stdio.h>
+#include <stdio.h>
+
 int main()
 {
- int n,i;
- char a='A',b='P',c='K';
+    int a[10], i, j, pos = 0, neg = 0;
 
- printf("Enter length of series: ");
- scanf("%d",&n);
+    printf("Enter 10 numbers: ");
 
-
+    for (i = 0; i < 10; i++)
+    {
+        scanf("%d",&a[i]); // taking numbers from keyboard
+    }
     
- for ( int i = 1; i <= n; i++)
- {    
-     printf("\t%c%c%c",a,b,c);
-     a += 1;
-     b += 1;
-     c += 1;
-    
- }
+    // Counting words
+    for (i = 0; i < 10; i++)
+    {
+        if (a[i] < 0)
+            neg++;
+        else
+            pos++;
+    }
+
+    printf("\nNegative numbers : %d", neg);
+    printf("\nPositive numbers : %d", pos);
     return 0;
 }

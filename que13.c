@@ -1,28 +1,39 @@
-//write a c program enter a integer number and find the largest and smallest digit of the number
-
 #include <stdio.h>
 
 int main() {
-    int num, digit, largest, smallest;
+    int n, i, count_above = 0, count_below = 0;
+    float sum = 0, average;
 
-    printf("Enter an integer number: ");
-    scanf("%d", &num);
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
 
-    largest = smallest = num % 10; // Initialize with the last digit
-
-    num /= 10; // Remove the last digit
-
-    while (num > 0) {
-        digit = num % 10;
-
-        largest = (digit > largest) ? digit : largest;
-        smallest = (digit < smallest) ? digit : smallest;
-
-        num /= 10;
+    int arr[n];
+    printf("Enter the elements of the array:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
 
-    printf("Largest digit: %d\n", largest);
-    printf("Smallest digit: %d\n", smallest);
+    i = 0;
+    while (i < n) {
+        sum += arr[i];
+        i++;
+    }
+
+    average = sum / n;
+
+    i = 0;
+    while (i < n) {
+        if (arr[i] > average) {
+            count_above++;
+        } else if (arr[i] < average) {
+            count_below++;
+        }
+        i++;
+    }
+
+    printf("Average: %.2f\n", average);
+    printf("Number of elements above average: %d\n", count_above);
+    printf("Number of elements below average: %d\n", count_below);
 
     return 0;
 }

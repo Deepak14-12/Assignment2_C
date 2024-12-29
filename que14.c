@@ -1,31 +1,32 @@
-
-//write a program to find total number of votes in favour of person 'A' and 'B'.assume 15 votes will be casting their votes to these persons.
-//Count the number of votes gained by 'A' and 'B' .user can enter hir/her choices by pressing only 'A' and 'B'.
-
-
 #include <stdio.h>
 
-int main() { 
-    int votesA = 0, votesB = 0;
-    char vote;
-
-    printf("Enter 15 votes (A or B):\n");
-
-    for (int i = 0; i < 15; i++) {
-        scanf(" %c", &vote); // Note the space before %c to consume extra whitespace
-
-        if (vote == 'A') {
-            votesA++;
-        } else if (vote == 'B') {
-            votesB++;
-        } else {
-            printf("Invalid vote. Please enter 'A' or 'B'.\n");
-            i--; // Decrement i to re-prompt the user for the same vote
-        }
+void interchangeElements(int arr[], int size) {
+    if (size < 2) {
+        return; // No interchange needed for arrays with less than 2 elements
     }
 
-    printf("\nTotal votes for A: %d\n", votesA);
-    printf("Total votes for B: %d\n", votesB);
+    int temp = arr[size - 1];
+    arr[size - 1] = arr[0];
+    arr[0] = temp;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Original array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    interchangeElements(arr, size);
+
+    printf("Array after interchange: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
 
     return 0;
 }
